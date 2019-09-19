@@ -52,6 +52,9 @@ var server = app.listen(4000, function() {
 
 
     app.get('/registerDevice', function(req, res){
+	var date = new Date();
+ var dateStr = date.toLocaleDateString();
+var timeStr = date.toLocaleTimeString();
         var Key = req.query.DeviceID+"_"+req.query.ID;
         var DeviceData ={
             "DeviceInfo": [
@@ -86,7 +89,7 @@ var server = app.listen(4000, function() {
                     }else{
 var params = req.query;
 			     var options = { method: 'GET',
-      url: 'https://smdiot-p1942521372trial.dispatcher.hanatrial.ondemand.com/dbchain/test_crud/assetReg.xsjs',
+      url: 'https://smdiot-p1942521372trial.dispatcher.hanatrial.ondemand.com/dbchain/digitalpersonas/assetReg.xsjs',
       qs: 
        { TXID: result,
          DEVICEID: params.ID, 
