@@ -84,12 +84,36 @@ var server = app.listen(4000, function() {
                         res.send(JSON.stringify(err));
                         return res.end();
                     }else{
-
-                        var obj ={};
-                        obj.statusCode = 200;
-                        obj.txid = results;
-                        res.send(JSON.stringify(obj));
-                        return res.end();
+var params = req.query;
+			     var options = { method: 'GET',
+      url: 'https://smdiot-p1942521372trial.dispatcher.hanatrial.ondemand.com/dbchain/test_crud/assetReg.xsjs',
+      qs: 
+       { TXID: result,
+         DEVICEID: params.ID, 
+         NAME: params.NAME,
+         TYPE: params.TYPE,
+         DATE: dateStr,
+         TIME: timeStr,
+         },
+      headers: 
+       { 'cache-control': 'no-cache',
+         Connection: 'keep-alive',
+         Cookie: 'BIGipServer~jpaas_folder~dispatcher.hanatrial.ondemand.com=!Rk92XWQpK6tp5dvfolxFifn6mxJejwzecQLxJ52vPMEYCKqcmtC/wtA368iFRJcvfBPZxmaW0MMA9Uw=; JSESSIONID=91543F60B3983DD79EB5CA45B581FD1ACED3F7548C3BA8DDF0C595517F4CF062',
+         'Accept-Encoding': 'gzip, deflate',
+         Host: 'smdiot-p1942521372trial.dispatcher.hanatrial.ondemand.com',
+         'Postman-Token': 'bdda3878-19bf-4702-9eb4-94770b784a85,6068736f-ccce-495e-a2ee-8c238f3f11c3',
+         'Cache-Control': 'no-cache',
+         Accept: '*/*',
+         'User-Agent': 'PostmanRuntime/7.16.3' } };  
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+    
+      var results = {
+        "status": 200,
+        'message': "Asset Registered successfully"
+      };
+      res.status(200).json(results);
+    });
                     }
                 })
         }else{
