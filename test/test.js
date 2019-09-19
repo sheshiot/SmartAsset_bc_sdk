@@ -15,7 +15,7 @@ app.all('*', function(req, res, next) {
 //DIGI
 const connection = {
     port: 5001,
-    host: '13.232.89.118',
+    host: '127.0.0.1',
     user: "multichainrpc",
     pass: "BLVUFXWUGvEZ8zD8dKvuEtew1PqjYsyGrrXPCMC8grmy"
 }
